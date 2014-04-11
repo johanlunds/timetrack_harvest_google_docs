@@ -14,7 +14,7 @@ session = GoogleDrive.login(username, pw)
 
 sheet = TimeSpreadsheet.new(session, spreadsheet_key)
 
-date = Date.parse("2014-4-11")
+date = Date.parse("2014-11-29")
 entry = sheet.get_entry_for_date(date)
 
 puts entry.helpdesk
