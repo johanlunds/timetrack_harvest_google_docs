@@ -2,8 +2,8 @@ class TimeSpreadsheet
 
   attr_reader :ws
 
-  def initialize(session, spreadsheet_key)
-    @ws = session.spreadsheet_by_key(spreadsheet_key).worksheets[0]
+  def initialize(session, spreadsheet_id)
+    @ws = session.spreadsheet_by_key(spreadsheet_id).worksheets[0]
   end
 
   START_ROWS = 2
