@@ -2,7 +2,8 @@ require 'bundler/setup'
 require 'google_drive'
 require 'date'
 
-require './models'
+require './time_entry'
+require './time_spreadsheet'
 
 username = 'johanlunds@gmail.com'
 pw = ENV['GOOGLE_DRIVE_PW'] # hdsrmcwcrodcrdod
