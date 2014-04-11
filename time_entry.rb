@@ -1,6 +1,6 @@
 class TimeEntry
 
-  MEASUREMENTS  = [:helpdesk, :maintenance, :development]
+  MEASUREMENTS  = [:helpdesk, :maintenance, :development] # order is important
   PREV_COLS = 1
 
   attr_reader :date, :ws, :row

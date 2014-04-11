@@ -10,6 +10,8 @@ class TimeSpreadsheet
   MAX_ROWS = 1000
   DATE_COL = 1
 
+  # returns TimeEntry for date
+  # returns nil if TimeEntry not found
   def get_entry_for_date(date)
     (START_ROWS..MAX_ROWS).each do |row|
       if parse_date(ws[row, DATE_COL]) == date
