@@ -2,17 +2,20 @@ require 'bundler/setup'
 require 'harvested'
 require 'date'
 
+require './time_tracker/fetch_time_entries'
+require './time_tracker/time_entry'
+
 sub_domain = 'johantest'
 email = 'johan.lundstrom@apoex.se'
 pw = ENV['HARVEST_PW']
-
 user_id = 720813 # Johan
 
-date = Date.parse("2014-04-11")
-
+num_dates = 1
+from_date = Date.today
 
 client = Harvest.client(sub_domain, email, pw)
-user = client.users.find(user_id)
-time_entries = client.time.all(date, user)
+fetcher = TimeTracker::FetchTimeEntries.new(client, user_id, from_date, num_dates)
+time_entries = fetcher.fetch
 
 puts time_entries.inspect
+
