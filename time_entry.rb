@@ -1,25 +1,27 @@
-class TimeEntry
+module Spreadsheet
+  class TimeEntry
 
-  MEASUREMENTS  = [:helpdesk, :maintenance, :development] # order is important
-  PREV_COLS = 1
+    MEASUREMENTS  = [:helpdesk, :maintenance, :development] # order is important
+    PREV_COLS = 1
 
-  attr_reader :date, :ws, :row
+    attr_reader :date, :ws, :row
 
-  def initialize(date, ws, row)
-    @date = date
-    @ws = ws
-    @row = row
-  end
-
-  MEASUREMENTS.each_with_index do |col, i|
-    define_method col do
-      ws[row, PREV_COLS + i + 1]
+    def initialize(date, ws, row)
+      @date = date
+      @ws = ws
+      @row = row
     end
 
-    define_method "#{col}=" do |value|
-      ws[row, PREV_COLS + i + 1] = value
+    MEASUREMENTS.each_with_index do |col, i|
+      define_method col do
+        ws[row, PREV_COLS + i + 1]
+      end
+
+      define_method "#{col}=" do |value|
+        ws[row, PREV_COLS + i + 1] = value
+      end
+
     end
 
   end
-
 end

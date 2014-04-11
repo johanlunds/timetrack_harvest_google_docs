@@ -13,7 +13,7 @@ spreadsheet_id = '0ApLJ7ZN_JZqEdExqak5COEg2VFBMbW1vT1d3MWE5OUE' # Copy of Johan 
 
 session = GoogleDrive.login(username, pw)
 
-sheet = TimeSpreadsheet.new(session, spreadsheet_id)
+sheet = Spreadsheet::TimeSpreadsheet.new(session, spreadsheet_id)
 
 date = Date.parse("2014-11-29")
 entry = sheet.get_entry_for_date(date)
